@@ -21,13 +21,13 @@ app.use((req,res,next) =>
     next();
 })
 
-app.use((req,res,next) =>
-{
-    res.render("maintain.hbs",{
-        pageTitle:"Maintainance Page",
-        bodyContent:"This page is under maintainance."
-    });
-});
+// app.use((req,res,next) =>
+// {
+//     res.render("maintain.hbs",{
+//         pageTitle:"Maintainance Page",
+//         bodyContent:"This page is under maintainance."
+//     });
+// });
 
 hbs.registerHelper("currentYear",() =>
 {
@@ -39,10 +39,17 @@ hbs.registerHelper("screamIt",(text) =>
     return text.toUpperCase();
 })
 
+app.get("/projects",(req,res) =>{
+    res.render("projects.hbs",{
+        pageTitle:"Projects",
+        bodyContent:"Portfolio goes here"
+    })
+});
+
 app.get("/",(req,res) => {
     res.render("home.hbs",{
         pageTitle:"Home Page",
-        bodyContent:"This is the body of the page",
+        bodyContent:"This is the body of the page"
     })
 });
 
